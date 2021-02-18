@@ -11,19 +11,19 @@ public class Producto extends GenericResponse {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pro_codigo")
+    @Column(name = "prod_codigo")
     private int codProducto;
-    @Column(name = "pro_descripcion")
+    @Column(name = "prod_descripcion")
     private String descripcion;
-    @Column(name = "pro_precio_venta")
+    @Column(name = "prod_precio_venta")
     private float precioVenta;
-    @Column(name = "pro_fecha_vencimiento")
+    @Column(name = "prod_fecha_vencimiento")
     private Date fechaVencimiento;
-    @Column(name = "pro_tipo_producto")
+    @Column(name = "prod_tipo_producto")
     private int tipoProducto;
     @ManyToOne()
     @JoinColumn(name = "p_familia")
-    @Column(name = "pro_id_familia")
+    @Column(name = "prod_id_familia")
     private Familia familia;
     private List<Proveedor> listaProveedores;
     private List<Familia> listaFamilias;
