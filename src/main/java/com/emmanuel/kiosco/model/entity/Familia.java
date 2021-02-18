@@ -1,7 +1,6 @@
 package com.emmanuel.kiosco.model.entity;
 
 import javax.persistence.*;
-import java.util.List;
 
 
 @Entity
@@ -11,15 +10,17 @@ public class Familia {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "f_id_familia_producto")
+    @Column(name = "fam_id")
     private int idFamilia;
+    @Column(name = "fam_nombre")
     private String nombre;
+    @Column(name = "fam_producto")
     @OneToMany(mappedBy = "productos", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Producto> productos;
+    private Producto producto;
 
-    public Familia(String nombre, List<Producto> productos) {
+    public Familia(String nombre, Producto producto) {
         this.nombre = nombre;
-        this.productos = productos;
+        this.producto = producto;
     }
 
     public Familia() {
@@ -41,11 +42,11 @@ public class Familia {
         this.nombre = nombre;
     }
 
-    public List<Producto> getProductos() {
-        return productos;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setProductos(List<Producto> productos) {
-        this.productos = productos;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 }

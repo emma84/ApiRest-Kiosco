@@ -7,16 +7,23 @@ import java.util.List;
 @Entity
 @Table(name = "productos")
 public class Producto extends GenericResponse {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "pro_codigo")
     private int codProducto;
+    @Column(name = "pro_descripcion")
     private String descripcion;
+    @Column(name = "pro_precio_venta")
     private float precioVenta;
+    @Column(name = "pro_fecha_vencimiento")
     private Date fechaVencimiento;
+    @Column(name = "pro_tipo_producto")
     private int tipoProducto;
     @ManyToOne()
     @JoinColumn(name = "p_familia")
+    @Column(name = "pro_id_familia")
     private Familia familia;
     private List<Proveedor> listaProveedores;
     private List<Familia> listaFamilias;
