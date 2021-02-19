@@ -14,8 +14,7 @@ public class Familia {
     private int idFamilia;
     @Column(name = "fam_nombre")
     private String nombre;
-    @Column(name = "fam_producto")
-    @OneToMany(mappedBy = "productos", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Column(name = "fam_codigo_producto")
     private Producto producto;
 
     public Familia(String nombre, Producto producto) {

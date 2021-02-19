@@ -21,14 +21,13 @@ public class Producto extends GenericResponse {
     private Date fechaVencimiento;
     @Column(name = "prod_tipo_producto")
     private int tipoProducto;
-    @ManyToOne()
-    @JoinColumn(name = "p_familia")
     @Column(name = "prod_id_familia")
     private Familia familia;
     private List<Proveedor> listaProveedores;
     private List<Familia> listaFamilias;
 
-    public Producto(String errorMessage, String descripcion, float precioVenta, Date fechaVencimiento, int tipoProducto, Familia familia, List<Proveedor> listaProveedores, List<Familia> listaFamilias) {
+    public Producto(String errorMessage, String descripcion, float precioVenta, Date fechaVencimiento, int tipoProducto,
+                    Familia familia, List<Proveedor> listaProveedores, List<Familia> listaFamilias) {
         super(errorMessage);
         this.descripcion = descripcion;
         this.precioVenta = precioVenta;
