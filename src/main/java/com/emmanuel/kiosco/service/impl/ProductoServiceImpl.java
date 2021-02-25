@@ -24,8 +24,6 @@ public class ProductoServiceImpl implements ProductoService {
             producto.setPrecioVenta(p.getPrecioVenta());
             producto.setFechaVencimiento(p.getFechaVencimiento());
             producto.setTipoProducto(p.getTipoProducto());
-            producto.setListaFamilias(p.getListaFamilias());
-            producto.setListaProveedores(p.getListaProveedores());
             return productoMapper.agregarProducto(producto);
         } catch (Exception ex) {
             return null;

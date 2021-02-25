@@ -21,21 +21,17 @@ public class Producto extends GenericResponse {
     private Date fechaVencimiento;
     @Column(name = "prod_tipo_producto")
     private int tipoProducto;
-    @Column(name = "prod_id_familia")
+    @ManyToOne
+    @JoinColumn(name = "prod_id_familia")
     private Familia familia;
-    private List<Proveedor> listaProveedores;
-    private List<Familia> listaFamilias;
 
-    public Producto(String errorMessage, String descripcion, float precioVenta, Date fechaVencimiento, int tipoProducto,
-                    Familia familia, List<Proveedor> listaProveedores, List<Familia> listaFamilias) {
+    public Producto(String errorMessage, String descripcion, float precioVenta, Date fechaVencimiento, int tipoProducto, Familia familia) {
         super(errorMessage);
         this.descripcion = descripcion;
         this.precioVenta = precioVenta;
         this.fechaVencimiento = fechaVencimiento;
         this.tipoProducto = tipoProducto;
         this.familia = familia;
-        this.listaProveedores = listaProveedores;
-        this.listaFamilias = listaFamilias;
     }
 
     public Producto() {
@@ -88,21 +84,5 @@ public class Producto extends GenericResponse {
 
     public void setFamilia(Familia familia) {
         this.familia = familia;
-    }
-
-    public List<Proveedor> getListaProveedores() {
-        return listaProveedores;
-    }
-
-    public void setListaProveedores(List<Proveedor> listaProveedores) {
-        this.listaProveedores = listaProveedores;
-    }
-
-    public List<Familia> getListaFamilias() {
-        return listaFamilias;
-    }
-
-    public void setListaFamilias(List<Familia> listaFamilias) {
-        this.listaFamilias = listaFamilias;
     }
 }

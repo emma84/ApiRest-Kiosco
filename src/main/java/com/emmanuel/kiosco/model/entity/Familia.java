@@ -14,12 +14,9 @@ public class Familia {
     private int idFamilia;
     @Column(name = "fam_nombre")
     private String nombre;
-    @Column(name = "fam_codigo_producto")
-    private Producto producto;
 
-    public Familia(String nombre, Producto producto) {
+    public Familia(String nombre) {
         this.nombre = nombre;
-        this.producto = producto;
     }
 
     public Familia() {
@@ -39,13 +36,5 @@ public class Familia {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Producto getProducto() {
-        return producto;
-    }
-
-    public void setProducto(Producto producto) {
-        this.producto = producto;
     }
 }
