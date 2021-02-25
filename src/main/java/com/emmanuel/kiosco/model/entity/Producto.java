@@ -24,14 +24,18 @@ public class Producto extends GenericResponse {
     @ManyToOne
     @JoinColumn(name = "prod_id_familia")
     private Familia familia;
+    @ManyToOne
+    @JoinColumn(name = "prod_id_proveedor")
+    private Proveedor proveedor;
 
-    public Producto(String errorMessage, String descripcion, float precioVenta, Date fechaVencimiento, int tipoProducto, Familia familia) {
-        super(errorMessage);
+
+    public Producto(String descripcion, float precioVenta, Date fechaVencimiento, int tipoProducto, Familia familia, Proveedor proveedor) {
         this.descripcion = descripcion;
         this.precioVenta = precioVenta;
         this.fechaVencimiento = fechaVencimiento;
         this.tipoProducto = tipoProducto;
         this.familia = familia;
+        this.proveedor = proveedor;
     }
 
     public Producto() {
@@ -84,5 +88,13 @@ public class Producto extends GenericResponse {
 
     public void setFamilia(Familia familia) {
         this.familia = familia;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 }
