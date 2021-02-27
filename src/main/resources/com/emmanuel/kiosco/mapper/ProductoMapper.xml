@@ -2,9 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.emmanuel.kiosco.mapper.ProductoMapper">
-    <select id="agregarProducto" resultType="">
-        INSERT INTO db_business.productos
-        (p_descripcion, p_precio_venta, p_fecha_vencimiento, p_tipo_producto, p_proveedor, p_familia)
+    <select id="listaProductos" resultType="com.emmanuel.kiosco.model.entity.Producto">
+       SELECT * FROM db_semilla.productos
     </select>
 
 </mapper>

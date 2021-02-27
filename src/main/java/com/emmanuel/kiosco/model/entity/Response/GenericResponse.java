@@ -1,4 +1,4 @@
-package com.emmanuel.kiosco.model.entity;
+package com.emmanuel.kiosco.model.entity.Response;
 
 public class GenericResponse {
     private String errorMessage;

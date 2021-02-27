@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductoServiceImpl implements ProductoService {
     final ProductoMapper productoMapper;
@@ -17,16 +19,11 @@ public class ProductoServiceImpl implements ProductoService {
     }
 
     @Override
-    public Producto agregarProducto(Producto p) {
-        try {
-            final Producto producto = new Producto();
-            producto.setDescripcion(p.getDescripcion());
-            producto.setPrecioVenta(p.getPrecioVenta());
-            producto.setFechaVencimiento(p.getFechaVencimiento());
-            producto.setTipoProducto(p.getTipoProducto());
-            return productoMapper.agregarProducto(producto);
-        } catch (Exception ex) {
-            return null;
+    public List<Producto> listaProductos() throws IllegalArgumentException {
+        final List<Producto> response = productoMapper.listaProductos();
+        if (response.size() == 0) {
+            throw new IllegalArgumentException();
         }
+        return response;
     }
 }

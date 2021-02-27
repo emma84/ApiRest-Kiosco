@@ -1,8 +1,9 @@
 package com.emmanuel.kiosco.model.entity;
 
+import com.emmanuel.kiosco.model.entity.Response.GenericResponse;
+
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "productos")
@@ -19,23 +20,28 @@ public class Producto extends GenericResponse {
     private float precioVenta;
     @Column(name = "prod_fecha_vencimiento")
     private Date fechaVencimiento;
-    @Column(name = "prod_tipo_producto")
-    private int tipoProducto;
+    @ManyToOne
+    @JoinColumn(name = "prod_tipo_producto")
+    private TipoProducto tipoProducto;
     @ManyToOne
     @JoinColumn(name = "prod_id_familia")
     private Familia familia;
+    @ManyToOne
+    @JoinColumn(name = "prod_id_proveedor")
+    private Proveedor proveedor;
 
-    public Producto(String errorMessage, String descripcion, float precioVenta, Date fechaVencimiento, int tipoProducto, Familia familia) {
-        super(errorMessage);
+
+    public Producto(String descripcion, float precioVenta, Date fechaVencimiento, TipoProducto tipoProducto,
+                    Familia familia, Proveedor proveedor) {
         this.descripcion = descripcion;
         this.precioVenta = precioVenta;
         this.fechaVencimiento = fechaVencimiento;
         this.tipoProducto = tipoProducto;
         this.familia = familia;
+        this.proveedor = proveedor;
     }
 
     public Producto() {
-
     }
 
     public int getCodProducto() {
@@ -70,11 +76,11 @@ public class Producto extends GenericResponse {
         this.fechaVencimiento = fechaVencimiento;
     }
 
-    public int getTipoProducto() {
+    public TipoProducto getTipoProducto() {
         return tipoProducto;
     }
 
-    public void setTipoProducto(int tipoProducto) {
+    public void setTipoProducto(TipoProducto tipoProducto) {
         this.tipoProducto = tipoProducto;
     }
 
@@ -84,5 +90,13 @@ public class Producto extends GenericResponse {
 
     public void setFamilia(Familia familia) {
         this.familia = familia;
+    }
+
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(Proveedor proveedor) {
+        this.proveedor = proveedor;
     }
 }
