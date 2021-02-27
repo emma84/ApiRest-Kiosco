@@ -1,8 +1,9 @@
 package com.emmanuel.kiosco.model.entity;
 
+import com.emmanuel.kiosco.model.entity.Response.GenericResponse;
+
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "productos")
@@ -19,8 +20,9 @@ public class Producto extends GenericResponse {
     private float precioVenta;
     @Column(name = "prod_fecha_vencimiento")
     private Date fechaVencimiento;
-    @Column(name = "prod_tipo_producto")
-    private int tipoProducto;
+    @ManyToOne
+    @JoinColumn(name = "prod_tipo_producto")
+    private TipoProducto tipoProducto;
     @ManyToOne
     @JoinColumn(name = "prod_id_familia")
     private Familia familia;
@@ -29,7 +31,8 @@ public class Producto extends GenericResponse {
     private Proveedor proveedor;
 
 
-    public Producto(String descripcion, float precioVenta, Date fechaVencimiento, int tipoProducto, Familia familia, Proveedor proveedor) {
+    public Producto(String descripcion, float precioVenta, Date fechaVencimiento, TipoProducto tipoProducto,
+                    Familia familia, Proveedor proveedor) {
         this.descripcion = descripcion;
         this.precioVenta = precioVenta;
         this.fechaVencimiento = fechaVencimiento;
@@ -39,7 +42,6 @@ public class Producto extends GenericResponse {
     }
 
     public Producto() {
-
     }
 
     public int getCodProducto() {
@@ -74,11 +76,11 @@ public class Producto extends GenericResponse {
         this.fechaVencimiento = fechaVencimiento;
     }
 
-    public int getTipoProducto() {
+    public TipoProducto getTipoProducto() {
         return tipoProducto;
     }
 
-    public void setTipoProducto(int tipoProducto) {
+    public void setTipoProducto(TipoProducto tipoProducto) {
         this.tipoProducto = tipoProducto;
     }
 

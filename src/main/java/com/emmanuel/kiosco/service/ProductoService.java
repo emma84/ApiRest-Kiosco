@@ -2,6 +2,8 @@ package com.emmanuel.kiosco.service;
 
 import com.emmanuel.kiosco.model.entity.Producto;
 
+import java.util.List;
+
 public interface ProductoService {
-    Producto agregarProducto(Producto p);
+    List<Producto> listaProductos();
 }
