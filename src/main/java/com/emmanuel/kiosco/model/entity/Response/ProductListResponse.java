@@ -10,4 +10,16 @@ public class ProductListResponse extends GenericResponse {
     public ProductListResponse(List<Producto> list) {
         this.list = list;
     }
+
+    public ProductListResponse(String errorMessage) {
+        super(errorMessage);
+    }
+
+    public List<Producto> getList() {
+        return list;
+    }
+
+    public void setList(List<Producto> list) {
+        this.list = list;
+    }
 }

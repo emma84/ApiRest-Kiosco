@@ -3,7 +3,13 @@
 
 <mapper namespace="com.emmanuel.kiosco.mapper.ProductoMapper">
     <select id="listaProductos" resultType="com.emmanuel.kiosco.model.entity.Producto">
-       SELECT * FROM db_semilla.productos
+       SELECT *
+            from db_semilla.productos
+    </select>
+
+    <select id="listaProveedores" resultType="com.emmanuel.kiosco.model.entity.Proveedor">
+       SELECT *
+            from db_semilla.proveedores
     </select>
 
 </mapper>
